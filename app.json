@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "peet_feeder",
+    "slug": "peet_feeder",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
