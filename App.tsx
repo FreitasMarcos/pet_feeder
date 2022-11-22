@@ -1,12 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Navigation from './route/Navigation';
+import { UserContextProvider } from './src/Contexts/UserContext';
+import 'react-native-gesture-handler';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <UserContextProvider>
+        <Navigation />
+      </UserContextProvider>
     </View>
   );
 }
@@ -14,8 +18,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
