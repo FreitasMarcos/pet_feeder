@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, Dimensions, FlatList, Alert } from 'react-native'
 import { Header } from '../components/header/Header';
 import { styles } from './styles';
-import { MaterialIcons, FontAwesome, Entypo } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome, Entypo, FontAwesome5 } from '@expo/vector-icons';
 
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -129,7 +129,17 @@ export function Home() {
                     />
                     :
 
-                    <View style={{ flex: 1, justifyContent: 'center' }}><Text>Marcos</Text></View>
+                    <View style={styles.containerCard}>
+                        <View style={styles.cardNoList}>
+                            <FontAwesome5 name="sad-tear" style={{ alignSelf: 'center', }} size={36} color="#256D85" />
+                            <View>
+                                <Text style={styles.titleCard}>Nenhum registro encontrado</Text>
+                            </View>
+                            <View>
+                                <Text style={styles.textCard}>Para poder acessar todas as funcionalidades que nosso aplicativo oferece, favor cadastre um horário e a quantidade de ração desejada.</Text>
+                            </View>
+                        </View>
+                    </View>
 
             }
 

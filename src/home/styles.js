@@ -58,4 +58,36 @@ export const styles = StyleSheet.create({
         width: width * .12,
     },
 
+    containerCard:{
+        flex: 1, 
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    cardNoList: {
+        padding: 10,
+        width: width *.6 ,
+        borderRadius: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.27,
+        shadowRadius: 4.65,
+        elevation: 4,
+        backgroundColor: '#fafafa',
+    },
+
+    titleCard:{
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginBottom: 5
+    },
+
+    textCard:{
+        fontSize: 14,
+         textAlign: 'justify',
+    }
+
 })
