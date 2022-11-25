@@ -23,9 +23,6 @@ export function Header() {
                 <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                     <MaterialIcons name="logout" size={26} color="white" style={{ transform: [{ rotate: "180deg" }] }} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                    <Ionicons name="person" size={26} color="white" />
-                </TouchableOpacity>
             </View>
         </View>
     )

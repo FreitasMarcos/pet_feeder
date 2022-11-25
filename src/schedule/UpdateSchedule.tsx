@@ -33,6 +33,9 @@ export function UpdateSchedule(params: any) {
     const [show, setShow] = useState(false)
     const [text, setText] = useState('')
 
+    const [quantidade, setQuantidade] = useState(0)
+    const [time, setTime] = useState('')
+
     const onChange = (event: any, selectedDate: any) => {
         const currentDate = selectedDate || date;
         setShow(Platform.OS === 'ios');
@@ -49,6 +52,8 @@ export function UpdateSchedule(params: any) {
     }
 
     useEffect(() => {
+        setQuantidade(params.route.params.Quantidade);
+        setTime(params.route.params.Time);
     }, [accessToken])
 
     return (
@@ -56,16 +61,27 @@ export function UpdateSchedule(params: any) {
             validationSchema={updateSchedule}
             initialValues={{ Quantidade: '', Time: '' }}
             onSubmit={async function (values) {
-                await api.patch('rest/v1/Tempo', {
-                    userId: accessToken,
-                    Quantidade: parseFloat(values.Quantidade),
+
+                let setquant
+
+                if (!values.Quantidade || !values.Time) {
+                    values.Quantidade = quantidade.toString();
+                    setquant = parseFloat(values.Quantidade);
+                    values.Time = time;
+                } else {
+                    setquant = parseFloat(values.Quantidade)
+                }
+
+                await api.patch(`rest/v1/Tempo?userId=eq.${accessToken}`, {
+                    Quantidade: setquant,
                     Time: values.Time
-                },
-                    {
+                }
+                    , {
                         headers: {
                             "Content-Type": "application/json",
                             "apikey": apieky,
-                            "Authorization": `Bearer ${apieky}`
+                            "Authorization": `Bearer ${apieky}`,
+                            "Prefer": "return=representation"
                         },
                     }).then((response) => {
                         Alert.alert(

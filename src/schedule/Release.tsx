@@ -29,19 +29,10 @@ export default function Release(params: any) {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            const agora = moment();
 
-            let hour = agora.hour() - 3;
-            let minute = agora.minute();
+            let agora = moment().locale('pt-br');
 
-            let minuto = String(minute)
-            let hora = String(hour)
-
-            let minut = minuto.padStart(2, '0');
-            let hours = hora.padStart(2, '0');
-
-            let horario = hours + ':' + minut;
-            setTimes(horario);
+            setTimes(agora.format('HH:mm'));
         }, 500);
         return () => clearInterval(interval);
     }, []);
