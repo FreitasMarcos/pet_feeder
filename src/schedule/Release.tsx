@@ -50,7 +50,7 @@ export default function Release(params: any) {
             onSubmit={async function (values) {
                 await api.post('rest/v1/Tempo', {
                     userId: accessToken,
-                    Quantidade: parseFloat(values.Quantidade),
+                    Quantidade: (parseFloat(values.Quantidade) / 1000).toFixed(2) + 1,
                     Time: values.Time,
                 },
                     {

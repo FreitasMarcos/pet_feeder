@@ -56,9 +56,14 @@ export function AddSchedule(params: any) {
             validationSchema={addSchedule}
             initialValues={{ Quantidade: '', Time: '' }}
             onSubmit={async function (values) {
+
+                let convertgTokg = (parseFloat(values.Quantidade) / 1000).toFixed(2) + 1;
+
+                console.log(convertgTokg)
+
                 await api.post('rest/v1/Tempo', {
                     userId: accessToken,
-                    Quantidade: parseFloat(values.Quantidade),
+                    Quantidade: convertgTokg,
                     Time: values.Time
                 },
                     {

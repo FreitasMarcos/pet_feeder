@@ -113,7 +113,7 @@ export function Home() {
                                             </View>
                                             <View style={styles.alignContent}>
                                                 <Text style={{ alignSelf: 'center' }}>Quantidade</Text>
-                                                <Text style={{ alignSelf: 'center' }}>{item.Quantidade}g</Text>
+                                                <Text style={{ alignSelf: 'center' }}>{(item.Quantidade * 1000) - 1}g</Text>
                                             </View>
                                             <TouchableOpacity style={[styles.buttonSet, { backgroundColor: '#ffc107' }]} onPress={() => navigationUpdate.navigate('UpdateSchedule', item)}>
                                                 <FontAwesome name="pencil-square-o" size={24} color="white" />

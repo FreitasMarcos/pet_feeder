@@ -66,11 +66,13 @@ export function UpdateSchedule(params: any) {
 
                 if (!values.Quantidade || !values.Time) {
                     values.Quantidade = quantidade.toString();
-                    setquant = parseFloat(values.Quantidade);
+                    setquant = (parseFloat(params.route.params.Quantidade) / 1000).toFixed(2) + 1;
                     values.Time = time;
                 } else {
-                    setquant = parseFloat(values.Quantidade)
+                    setquant = (parseFloat(values.Quantidade) / 1000).toFixed(2) + 1;
                 }
+
+                console.log(setquant)
 
                 await api.patch(`rest/v1/Tempo?userId=eq.${accessToken}`, {
                     Quantidade: setquant,
